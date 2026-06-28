@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms & Suites — Bird's Eye View Homestay </title>
+  <meta name="description" content=" Bird's Eye View Homestay">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="loader-logo text-2xl">Bird's Eye View Homestay</div>
+  <div class="loader-bar"></div>
+  <p class="loader-tagline">Rooms & Suites</p>
+</div>
+
+<!-- Navigation -->
+<header id="navbar">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="index.html" class="nav-logo">Bird's Eye View <span> Homestay</span></a>
+    <nav class="nav-links-desktop flex items-center gap-8">
+      <a href="index.html" class="nav-link" data-page="index.html">Home</a>
+      <a href="rooms.html" class="nav-link" data-page="rooms.html">Rooms</a>
+      <a href="booking.html" class="nav-link" data-page="booking.html">Book</a>
+      <a href="contact.html" class="nav-link" data-page="contact.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle" aria-label="Toggle theme"></button>
+      <a href="booking.html" class="btn-gold hidden md:inline-block" style="padding:0.6rem 1.6rem;font-size:0.68rem"><span>Book Now</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu">
+  <button id="mobile-close" class="absolute top-6 right-6 text-3xl" style="color:var(--gold);background:none;border:none;cursor:pointer">✕</button>
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="rooms.html" class="nav-link">Rooms</a>
+  <a href="booking.html" class="nav-link">Book</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero" aria-label="Rooms page hero">
+  <div class="page-hero-bg" style="background-image:url('./images/homestay.jpeg')"></div>
+  <div class="page-hero-content">
+    <p style="font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Our Accommodations</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;line-height:1.1">
+      Choose Your  <em style="color:var(--gold-light)">Perfect Stay</em>
+    </h1>
+    <p style="font-size:0.85rem;letter-spacing:0.12em;color:rgba(255,255,255,0.6);margin-top:1rem">
+     Stay surrounded by nature's beauty.
+    </p>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div style="background:var(--page-bg-alt);border-bottom:1px solid var(--glass-border);padding:0.9rem 0">
+  <div class="max-w-7xl mx-auto px-6">
+    <nav aria-label="Breadcrumb">
+      <ol class="flex gap-2 text-xs" style="color:var(--text-secondary)">
+        <li><a href="index.html" style="color:var(--gold);text-decoration:none">Home</a></li>
+        <li>›</li>
+        <li>Our Rooms</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<section style="background:var(--page-bg-alt);padding:2.5rem 0;position:sticky;top:70px;z-index:100;border-bottom:1px solid var(--glass-border);backdrop-filter:blur(12px)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-wrap gap-3 items-center justify-between">
+      <div class="flex flex-wrap gap-2">
+        <button class="filter-tab active" data-filter="all">All Rooms</button>
+        <!-- <button class="filter-tab" data-filter="single">Single</button> -->
+        <button class="filter-tab" data-filter="double">Double</button>
+        <button class="filter-tab" data-filter="deluxe">Deluxe</button>
+        <!-- <button class="filter-tab" data-filter="family">Family</button> -->
+      </div>
+      <p class="text-xs" style="color:var(--text-secondary)">9 Comfortable Rooms available</p>
+    </div>
+  </div>
+</section>
+
+<!-- Rooms Grid -->
+<main style="padding:4rem 0;background:var(--page-bg)" id="rooms-main">
+  <div class="max-w-7xl mx-auto px-6">
+    <div id="rooms-grid" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8" style="transition: opacity 0.4s, transform 0.4s">
+      <!-- Cards injected by rooms.js -->
+      <div class="col-span-2 text-center py-16">
+        <div style="width:40px;height:40px;border:2px solid var(--gold);border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto"></div>
+        <p class="mt-4 text-sm" style="color:var(--text-secondary)">Loading rooms...</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+/* Override room card grid for rooms page - 2-up layout with more detail */
+@media(min-width:1024px) {
+  #rooms-grid { grid-template-columns: repeat(2, 1fr); }
+  #rooms-grid .room-card { display: grid; grid-template-columns: 320px 1fr; }
+  #rooms-grid .room-card .slider-container { height: 100%; min-height: 320px; border-radius: 20px 0 0 20px; }
+  #rooms-grid .room-card .room-card-img { height: 100%; }
+}
+</style>
+
+<!-- Policies Section -->
+<section style="background:var(--charcoal);padding:5rem 0;border-top:1px solid rgba(201,169,110,0.15)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="section-eyebrow">Hotel Policies</p>
+      <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--white)">Good to Know</h2>
+    </div>
+    <div class="grid md:grid-cols-1 gap-6">
+      <div class="glass-card p-6 reveal">
+        <p style="color:var(--gold);font-size:1.5rem;margin-bottom:1rem">🗓</p>
+        <h3 style="font-family:var(--font-display);color:var(--white);font-size:1.1rem;margin-bottom:0.75rem">Check-in / Check-out</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.55);line-height:1.8">Check-in from 10:00 Am · Check-out by 12:00 PM<br>Early/late options available on request.</p>
+      </div>
+      <!-- <div class="glass-card p-6 reveal" style="transition-delay:0.1s">
+        <p style="color:var(--gold);font-size:1.5rem;margin-bottom:1rem">❌</p>
+        <h3 style="font-family:var(--font-display);color:var(--white);font-size:1.1rem;margin-bottom:0.75rem">Cancellation Policy</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.55);line-height:1.8">Free cancellation up to 48 hours before arrival. No-show policy applies thereafter.</p>
+      </div>
+      <div class="glass-card p-6 reveal" style="transition-delay:0.2s">
+        <p style="color:var(--gold);font-size:1.5rem;margin-bottom:1rem">🐾</p>
+        <h3 style="font-family:var(--font-display);color:var(--white);font-size:1.1rem;margin-bottom:0.75rem">Pet Policy</h3>
+        <p class="text-sm" style="color:rgba(255,255,255,0.55);line-height:1.8">Well-behaved pets welcome in select rooms. Please inform us in advance. Pet fee applies.</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <a href="index.html" class="nav-logo">Bird's Eye View<span style="font-family:var(--font-display);font-style:italic;color:rgba(255,255,255,0.4);font-weight:300"> Homestay</span></a>
+      <div class="flex gap-6">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="rooms.html" class="footer-link">Rooms</a>
+        <a href="booking.html" class="footer-link">Book</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Bird's Eye View Homestayl</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.3)">Designed & Developed by Tapadyoti Das</p>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+<a id="whatsapp-float" href="https://wa.me/8118908032" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script src="js/app.js"></script>
+<script src="js/rooms.js"></script>
+</body>
+</html>
