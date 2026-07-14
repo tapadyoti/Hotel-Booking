@@ -15,7 +15,7 @@ const TAXES_RATE = 0; // 0% tax
 
 
 // GOOGLE APPS SCRIPT DEPLOYMENT URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylVD-0b8WdZ6TNgTHei8oJf7m4yhpoyolbYRcu6tedD0qC-o4OZkkNOatctEeC8zjoeg/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRWjUbhs99W0Ts1BD7DKxcYkg2eg8cBBIr6rg-z0W511sNBBt1mhOX9ZswNPhaf6gnLw/exec'
 
 /* ── Form Fields ──────────────────────────────────────────── */
 const fields = {
