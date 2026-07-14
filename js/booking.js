@@ -162,7 +162,6 @@ async function submitToSheets(data) {
     const response = await fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors', // Required for Google Apps Script
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
     return { success: true };
